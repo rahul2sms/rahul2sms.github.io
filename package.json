@@ -10,7 +10,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "ph-pages-deploy": "gatsby build && gh-pages -d public -f"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
@@ -24,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
