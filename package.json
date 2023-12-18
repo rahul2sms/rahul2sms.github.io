@@ -11,12 +11,13 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "ph-pages-deploy": "gatsby build && gh-pages -d public -f"
+    "deploy": "gatsby build && gh-pages -d public -f"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
     "gatsby": "^5.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0"
   },
   "repository": {

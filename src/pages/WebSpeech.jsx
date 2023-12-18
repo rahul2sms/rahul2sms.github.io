@@ -11,6 +11,10 @@ export default class WebSpeech extends React.Component {
     }
 
     componentDidMount() {
+       this.initData();
+    }
+
+    initData = async () => {
         if('speechSynthesis' in window) {
             this.setState({ supported: true, voices: speechSynthesis.getVoices() });
         }
