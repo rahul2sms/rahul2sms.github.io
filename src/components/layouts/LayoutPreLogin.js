@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from 'gatsby';
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 export default function LayoutPreLogin(props) {
 
@@ -9,31 +10,27 @@ export default function LayoutPreLogin(props) {
         </header>
 
 
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-light">
             <section className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link active">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/WebSpeech" className="nav-link">Web Speech</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/AboutMe" className="nav-link">AboutMe</Link>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled">Disabled</a>
-                        </li>
-                    </ul>
-                    <span id="navbar-text" class="navbar-text">
-                        Navbar text with an inline element
-                    </span>
-                </div>
+                
+                <Navbar expand={'lg'}>
+                    <Container fluid={true}>
+                        <Navbar.Brand href="/">
+                            <span className="text-danger h3">&#9813;</span>
+                        </Navbar.Brand>
+                        <Navbar.Toggle aria-controls="mainNavigation" className='w-auto rounded' />
+                        <Navbar.Collapse id="mainNavigation" className='flex-grow-0'>
+                            <Nav>
+                                <Nav.Link href='/WebSpeech' className='fw-bold'>Web Speech</Nav.Link>
+                                <Nav.Link href='/AboutMe' className='fw-bold'>About Me</Nav.Link>
+                                {/* <Nav.Link href='/logout' className='fw-bold'>Logout</Nav.Link> */}
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
             </section>
         </nav>
 
