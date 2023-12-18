@@ -21,7 +21,10 @@ export default function LayoutPreLogin(props) {
                             <Link to="/" className="nav-link active">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/aboutMe" className="nav-link">AboutMe</Link>
+                            <Link to="/WebSpeech" className="nav-link">Web Speech</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/AboutMe" className="nav-link">AboutMe</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link disabled">Disabled</a>
