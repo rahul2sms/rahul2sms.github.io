@@ -12,6 +12,7 @@ export default class WebSpeech extends React.Component {
 
     componentDidMount() {
        this.initData();
+       window.speechSynthesis.onvoiceschanged = this.initData;
     }
 
     initData = async () => {

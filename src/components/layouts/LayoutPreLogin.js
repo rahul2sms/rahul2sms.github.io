@@ -4,11 +4,10 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 export default function LayoutPreLogin(props) {
 
-    return <>
+    return <section className='min-vh-100 d-flex flex-column'>
         <header className="bg-primary py-4 text-center text-white h1 mb-0">
             RAHUL JAISWAL
         </header>
-
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-light">
             <section className="container-fluid">
@@ -34,12 +33,12 @@ export default function LayoutPreLogin(props) {
             </section>
         </nav>
 
-        <main className="container min-vh-100">
+        <main className="container flex-grow-1">
             {props.children}
         </main>
-        <footer className="d-flex flex-column bg-dark p-3 text-end text-white fixed-bottom">
+        <footer className="d-flex flex-column bg-dark p-3 text-end text-white">
             <span className="small">Developed and maintained by</span>
             <i className="h5">Rahul Jaiswal</i>
         </footer>
-    </>
+    </section>
 }
