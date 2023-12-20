@@ -5,9 +5,9 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 export default function LayoutPreLogin(props) {
 
     return <section className='min-vh-100 d-flex flex-column'>
-        <header className="bg-primary py-4 text-center text-white h1 mb-0">
+        {/* <header className="bg-primary py-4 text-center text-white h1 mb-0">
             RAHUL JAISWAL
-        </header>
+        </header> */}
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-light">
             <section className="container-fluid">
@@ -23,9 +23,9 @@ export default function LayoutPreLogin(props) {
                         <Navbar.Toggle aria-controls="mainNavigation" className='w-auto rounded' />
                         <Navbar.Collapse id="mainNavigation" className='flex-grow-0'>
                             <Nav>
-                                <Nav.Link href='/WebSpeech' className='fw-bold'>Web Speech</Nav.Link>
+                                <Nav.Link href='/TextToSpeech' className='fw-bold'>Text To Speech</Nav.Link>
+                                <Nav.Link href='/SpeechToText' className='fw-bold'>Speech To Text</Nav.Link>
                                 <Nav.Link href='/AboutMe' className='fw-bold'>About Me</Nav.Link>
-                                {/* <Nav.Link href='/logout' className='fw-bold'>Logout</Nav.Link> */}
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -33,7 +33,7 @@ export default function LayoutPreLogin(props) {
             </section>
         </nav>
 
-        <main className="container flex-grow-1">
+        <main className={`container flex-grow-1 ${props.className || ''}`}>
             {props.children}
         </main>
         <footer className="d-flex flex-column bg-dark p-3 text-end text-white">

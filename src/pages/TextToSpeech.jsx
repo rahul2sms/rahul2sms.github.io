@@ -1,7 +1,7 @@
 import React from "react"
 import LayoutPreLogin from "../components/layouts/LayoutPreLogin"
 
-export default class WebSpeech extends React.Component {
+export default class TextToSpeech extends React.Component {
 
     state = {
         supported: null,
@@ -17,7 +17,7 @@ export default class WebSpeech extends React.Component {
 
     initData = async () => {
         if('speechSynthesis' in window) {
-            this.setState({ supported: true, voices: speechSynthesis.getVoices() });
+            this.setState({ supported: true, voices: speechSynthesis.getVoices().filter(v => v.lang.endsWith('IN')) });
         }
         else {
             this.setState({ supported: false });
@@ -43,7 +43,7 @@ export default class WebSpeech extends React.Component {
     render() {
         return <LayoutPreLogin> 
             <section className="d-flex flex-column">
-                <h1 className="text-center">Speech Synthesis</h1>
+                <h1 className="h2 text-center my-4">I can read what you type</h1>
                 {this.state.supported === false && <span className="alert alert-danger">Your browser <strong>does not support</strong> Speech Synthesis.</span>}
 
                 <form className="align-self-center" onSubmit={this.onSubmit}>

@@ -1,8 +1,8 @@
 import * as React from "react"
 import '../../static/styles/main.css';
-import WebSpeech from "./webSpeech"
+import TextToSpeech from "./TextToSpeech";
 
 export default function Home() {
 
-  return <WebSpeech></WebSpeech>;
+  return <TextToSpeech></TextToSpeech>
 }
