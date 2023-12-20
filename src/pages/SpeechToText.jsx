@@ -9,9 +9,11 @@ export default class SpeechToText extends React.Component {
     state = {
         loading: false,
         listening: false,
+
+        locale: 'en-US',
         transcript: null,
-        error: null,
-        logs: []
+
+        error: null
     }
 
     componentDidMount() {
@@ -29,7 +31,7 @@ export default class SpeechToText extends React.Component {
 
             this.recognition.interimResults = true;
             this.recognition.maxAlternatives = 1;
-            this.recognition.lang = 'hi-IN';
+            this.recognition.lang = 'en-US';
 
             this.recognition.addEventListener('speechstart', this.onSpeechStart);
             this.recognition.addEventListener('speechend', this.onSpeechEnd);
@@ -46,11 +48,11 @@ export default class SpeechToText extends React.Component {
     }
 
     onSpeechStart = () => {
-        this.setState({ listening: true, transcript: null, error: null }, this.log('Listening Started!'));
+        this.setState({ listening: true, transcript: null, error: null });
     }
 
     onSpeechEnd = () => {
-        this.setState({ listening: false }, this.log('Listening End!'));
+        this.setState({ listening: false });
     }
 
     onResult = e => {
@@ -63,19 +65,17 @@ export default class SpeechToText extends React.Component {
     }
 
     onClickMic = e => {
-        this.log('Mic clicked!');
         this.recognition.start();
         this.setState({ listening: true });
-    }
-
-    log = msg => {
-    //    this.setState( { logs: [...this.state.logs, msg ]})
     }
 
     render() {
         return <LayoutPreLogin className='d-flex flex-column align-items-center'>
             <h1 className="h2 my-4">I can write as to speek</h1>
-            <LocaleToggle value={this.recognition?.lang} onChange={value => this.recognition.lang = value} />
+            <LocaleToggle value={this.state.locale} onChange={value => {
+                this.recognition.lang = value;
+                this.setState({ locale: value });
+            }} />
             {this.state.loading?<progress />
             :<input 
                 type="image" 
@@ -89,7 +89,6 @@ export default class SpeechToText extends React.Component {
 
             {this.state.listening && <progress />}
             {this.state.error && <span className="text-danger">{this.state.error}</span>}
-            {this.state.logs.map(log => <span>{log}</span>).reverse()}
         </LayoutPreLogin>;
     }
 }

@@ -17,7 +17,7 @@ export default class TextToSpeech extends React.Component {
 
     initData = async () => {
         if('speechSynthesis' in window) {
-            this.setState({ supported: true, voices: speechSynthesis.getVoices().filter(v => v.lang.endsWith('IN')) });
+            this.setState({ supported: true, voices: speechSynthesis.getVoices() });
         }
         else {
             this.setState({ supported: false });
