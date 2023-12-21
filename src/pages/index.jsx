@@ -1,5 +1,4 @@
-import * as React from "react"
-import '../../static/styles/main.css';
+import * as React from "react";
 import TextToSpeech from "./TextToSpeech";
 
 export default function Home() {

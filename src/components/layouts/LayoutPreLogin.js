@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from 'gatsby';
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 export default function LayoutPreLogin(props) {
@@ -25,7 +24,7 @@ export default function LayoutPreLogin(props) {
                             <Nav>
                                 <Nav.Link href='/TextToSpeech' className='fw-bold'>Text To Speech</Nav.Link>
                                 <Nav.Link href='/SpeechToText' className='fw-bold'>Speech To Text</Nav.Link>
-                                <Nav.Link href='/AboutMe' className='fw-bold'>About Me</Nav.Link>
+                                <Nav.Link href='/ImageClassifier' className='fw-bold'>Image Classifier</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

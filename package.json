@@ -16,9 +16,11 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "gatsby": "^5.3.3",
+    "gatsby-plugin-sass": "^6.13.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5"
   },
   "repository": {
     "type": "git",
