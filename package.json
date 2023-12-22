@@ -14,6 +14,7 @@
     "deploy": "gatsby build && gh-pages -d public -f"
   },
   "dependencies": {
+    "@tensorflow-models/knn-classifier": "^1.2.6",
     "@tensorflow-models/mobilenet": "^2.1.1",
     "@tensorflow/tfjs": "^4.15.0",
     "bootstrap": "^5.2.3",

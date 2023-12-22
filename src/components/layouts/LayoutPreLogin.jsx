@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from 'prop-types';
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 export default function LayoutPreLogin(props) {
@@ -25,6 +26,7 @@ export default function LayoutPreLogin(props) {
                                 <Nav.Link href='/TextToSpeech' className='fw-bold'>Text To Speech</Nav.Link>
                                 <Nav.Link href='/SpeechToText' className='fw-bold'>Speech To Text</Nav.Link>
                                 <Nav.Link href='/ImageClassifier' className='fw-bold'>Object Identifier</Nav.Link>
+                                <Nav.Link href='/TransferLearning' className='fw-bold'>Face Tracker</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -40,4 +42,8 @@ export default function LayoutPreLogin(props) {
             <i className="h5">Rahul Jaiswal</i>
         </footer>
     </section>
+}
+
+LayoutPreLogin.propTypes = {
+    className: PropTypes.string
 }

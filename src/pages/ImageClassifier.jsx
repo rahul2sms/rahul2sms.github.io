@@ -2,6 +2,7 @@ import React from "react";
 import LayoutPreLogin from "../components/layouts/LayoutPreLogin";
 import * as tf from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
+import PredictionTable from "../components/PredictionTable";
 
 export default class ImageClassifier extends React.Component {
 
@@ -61,12 +62,7 @@ export default class ImageClassifier extends React.Component {
             {this.state.loading && <progress />}
             <button className="btn btn-primary" disabled={this.state.loading} hidden={this.state.loading} onClick={this.onClickSnap}>Snap</button>
 
-            {this.state.predictions && <table className="table table-sm">
-                <tbody>{this.state.predictions.map((prediction, index) => <tr key={`pred-${index}`}>
-                    <th>{prediction.className}</th>
-                    <td>{`${Math.round(prediction.probability*100)}% confidence`}</td>
-                </tr>)}</tbody>
-            </table>}
+            <PredictionTable predictions={this.state.predictions} />
         </LayoutPreLogin>
     }
 }
