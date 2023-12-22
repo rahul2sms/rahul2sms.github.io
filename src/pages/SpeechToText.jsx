@@ -80,6 +80,7 @@ export default class SpeechToText extends React.Component {
             :<input 
                 type="image" 
                 src={iconMic} 
+                alt="mic"
                 className={`mt-3 btn btn-lg btn-${this.state.listening?'danger':'warning'}`} 
                 onClick={this.onClickMic}
                 disabled={this.state.listening}

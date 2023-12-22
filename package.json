@@ -14,6 +14,8 @@
     "deploy": "gatsby build && gh-pages -d public -f"
   },
   "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.15.0",
     "bootstrap": "^5.2.3",
     "gatsby": "^5.3.3",
     "gatsby-plugin-sass": "^6.13.0",
