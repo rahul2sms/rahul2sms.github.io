@@ -2,7 +2,8 @@ import React from "react";
 
 const langs = Object.freeze({
     "en-US": "English",
-    "hi-IN": "Hindi"
+    "hi-IN": "Hindi",
+    "bn-IN": "Bangla"
 })
 
 export default function LocaleToggle(props) {

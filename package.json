@@ -23,7 +23,8 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "validator": "^13.11.0"
   },
   "repository": {
     "type": "git",
