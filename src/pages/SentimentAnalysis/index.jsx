@@ -1,8 +1,6 @@
 import React from "react";
 import LayoutPreLogin from "../../components/layouts/LayoutPreLogin";
 import validator from "validator";
-import modelJson from './model.json';
-import metadata from './metadata.json';
 import * as tf from '@tensorflow/tfjs';
 
 const urlModel = 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json';
@@ -15,7 +13,6 @@ export default class SentimentAnalysis extends React.Component {
         loading: false,
         textInput: '',
 
-        model: null,
         metadata: null,
 
         trimmed: '',
@@ -32,14 +29,10 @@ export default class SentimentAnalysis extends React.Component {
 
         this.setState({loading: true});
         try {
-            const p1 = fetch(urlModel);
-            const p2 = fetch(urlMetadata);
-    
-            const [ pr1, pr2 ] = await Promise.all([p1, p2]);
+            const metadata = await (await fetch(urlMetadata))?.json();
+            this.model = await tf.loadLayersModel(urlModel);
 
-            const [ model, metadata ] = await Promise.all([pr1.json(), pr2.json()]);
-
-            this.setState({ loading: false, model, metadata });
+            this.setState({ loading: false, metadata });
         }
         catch(ex) {
             this.setState({ loading: false, alertMessage: ex.message || ex});
@@ -49,7 +42,9 @@ export default class SentimentAnalysis extends React.Component {
     onSubmit = async e => {
         e.preventDefault();
 
-        const trimmed = validator.trim(this.state.textInput).toLowerCase().replace(/(\.|,\|\!|\?)/g, "").split(' ');
+        const { textInput, metadata } = this.state;
+
+        const trimmed = validator.trim(textInput).toLowerCase().replace(/(\.|,\|\!|\?)/g, "").split(' ');
 
         const sequence = trimmed.map(word => (metadata.word_index[word] || 2) + metadata.index_from);
         let paddedSequence;
@@ -68,8 +63,7 @@ export default class SentimentAnalysis extends React.Component {
         try {
             const input = tf.tensor2d(paddedSequence, [1, metadata.max_len]);
 
-            const model = await tf.loadLayersModel(urlModel);
-            const predictOut = model.predict(input);
+            const predictOut = this.model.predict(input);
 
             const scores = predictOut.dataSync();
 
