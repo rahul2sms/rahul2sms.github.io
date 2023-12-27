@@ -28,6 +28,7 @@ export default function LayoutPreLogin(props) {
                                 <Nav.Link href='/ImageClassifier' className='fw-bold'>Object Identifier</Nav.Link>
                                 <Nav.Link href='/TransferLearning' className='fw-bold'>Face Tracker</Nav.Link>
                                 <Nav.Link href='/SentimentAnalysis' className='fw-bold'>Sentiment Analysis</Nav.Link>
+                                <Nav.Link href='/CssGrid' className='fw-bold'>CSS Grid</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
